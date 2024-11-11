@@ -61,6 +61,14 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :nostrum,
+  token: System.get_env("DISCORD_BOT_TOKEN"),
+  ffmpeg: System.get_env("NOSTRUM_FFMPEG_PATH"),
+  gateway_intents: [
+    :guilds,
+    :guild_voice_states
+  ]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
